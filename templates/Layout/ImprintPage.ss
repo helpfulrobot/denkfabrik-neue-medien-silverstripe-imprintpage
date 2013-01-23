@@ -62,6 +62,10 @@
 				<p><% _t('TPLVATNUMBER','USt-ID-Nr.:') %> $Vatnumber</p>
 			<% end_if %>
 			
+			<% if CommercialRegister %>
+				<p>$CommercialRegister</p>
+			<% end_if %>
+			
 		<% end_control %>
 	</section>
 	
