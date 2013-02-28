@@ -1,0 +1,19 @@
+{
+    "name": "denkfabrik-neue-medien/silverstripe-imprintpage",
+    "description": "A module for the Silverstripe CMS to display informations needed for the imprint page of a website",
+    "type": "silverstripe-module",
+    "keywords": ["silverstripe", "imprint", "legal informations"],
+    "authors": [
+    {
+        "name": "Marco Kernler",
+        "email": "marco.kernler@denkfabrik-neueMedien.de"
+    }
+    ],
+
+    "require":
+    {
+        "silverstripe/framework": "3.*",
+        "composer/installers": "*",
+        "denkfabrik-neue-medien/silverstripe-siteinfo": "*"
+    }
+}

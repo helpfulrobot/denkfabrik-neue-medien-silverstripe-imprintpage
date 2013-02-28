@@ -1,75 +1,76 @@
-
-	
-<article>
-	<h1>$Title</h1>
-	
-	<section class="companyinfos">
-		<% control SiteInfo %>
-					
-			<% if Company1 %>
-				<p><b>$Company1</b></p>
+<% include SideBar %>
+<div class="content-container unit size3of4 lastUnit">
+	<article>
+		<h1>$Title</h1>
+		<div class="content">
+		
+			<% if $SiteConfig.Company1 %>
+				<p><b>$SiteConfig.Company1</b></p>
 			<% end_if %>
 			
-			<% if Company2 %>
-				<p>$Company2</p>
-			<% end_if %>
-			
-			<p>&nbsp;</p>
-			
-			<% if Firstname %>
-				<p>$Firstname $surname</p>
-			<% end_if %>
-			
-			<% if Street %>
-				<p>$Street $Streetnumber</p>
-			<% end_if %>
-			
-			<% if Zip %>
-				<p>$Zip $City</p>
-			<% end_if %>
-			
-			<% if Country %>
-				<p>$Country</p>
+			<% if $SiteConfig.Company2 %>
+				<p>$SiteConfig.Company2</p>
 			<% end_if %>
 			
 			<p>&nbsp;</p>
 			
-			<% if Phone %>
-				<p><span><% _t('TPLPHONE','Telefon:') %></span> $Phone</p>
+			<% if $SiteConfig.Firstname %>
+				<p>$SiteConfig.Firstname $SiteConfig.Surname</p>
+			<% end_if %>
+			
+			<% if $SiteConfig.Street %>
+				<p>$SiteConfig.Street $SiteConfig.Streetnumber</p>
+			<% end_if %>
+			
+			<% if $SiteConfig.Zip %>
+				<p>$SiteConfig.Zip $SiteConfig.City</p>
+			<% end_if %>
+			
+			<% if $SiteConfig.Country %>
+				<p>$SiteConfig.Country</p>
+			<% end_if %>
+			
+			<p>&nbsp;</p>
+			
+			<% if $SiteConfig.Phone %>
+				<p><span><%t ImprintPage.PHONE %>:</span> $SiteConfig.Phone</p>
 			<% end_if %>
 								
-			<% if Fax %>
-				<p><span><% _t('TPLFAX','Fax:') %></span> $Fax</p>
+			<% if $SiteConfig.Fax %>
+				<p><span><%t ImprintPage.FAX %>:</span> $SiteConfig.Fax</p>
 			<% end_if %>
 			
-			<% if Mobile %>
-				<p><span><% _t('TPLMOBILE','Mobil:') %></span> $Mobile</p>
-			<% end_if %>
-			
-			<p>&nbsp;</p>
-			
-			<% if Email %>				
-				<p><span><% _t('TPLEMAIL','E-Mail:') %></span> <a href="mailto:$Top.MailObfuscated" class="mail">$Top.MailObfuscated</a></p>
-			<% end_if %>
-			
-			<% if Website %>
-				<p><span><% _t('TPLWEBSITE','Internet:') %>:</span> <a href="$Website">$Website</a></p>
+			<% if $SiteConfig.Mobile %>
+				<p><span><%t ImprintPage.MOBILE %>:</span> $SiteConfig.Mobile</p>
 			<% end_if %>
 			
 			<p>&nbsp;</p>
 			
-			<% if Vatnumber %>
-				<p><% _t('TPLVATNUMBER','USt-ID-Nr.:') %> $Vatnumber</p>
+			<% if $SiteConfig.Email %>				
+				<p><span><%t ImprintPage.EMAIL %>:</span> <a href="mailto:$SiteConfig.Email" class="mail">$SiteConfig.Email</a></p>
 			<% end_if %>
 			
-			<% if CommercialRegister %>
-				<p>$CommercialRegister</p>
+			<% if $SiteConfig.Website %>
+				<p><span><%t ImprintPage.WEBSITE %>:</span> <a href="$SiteConfig.Website">$SiteConfig.Website</a></p>
 			<% end_if %>
 			
-		<% end_control %>
-	</section>
+			<p>&nbsp;</p>
+			
+			<% if $SiteConfig.Vatnumber %>
+				<p><span><%t ImprintPage.VATNUMBER %>:</span> $SiteConfig.Vatnumber</p>
+			<% end_if %>
+			
+			<% if $SiteConfig.CommercialRegister %>
+				<p><span><%t ImprintPage.COMMERCIALREGISTER %>:</span> $SiteConfig.CommercialRegister</p>
+				
+			<% end_if %>
+			
+			<p>&nbsp;</p>
+		
+			$Content
+		</div>
+	</article>
 	
-	<section>	
-		$Content
-	</section>
-</article>
+	$Form
+	$PageComments
+</div>

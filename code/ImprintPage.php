@@ -11,13 +11,33 @@
  *
  */
 class ImprintPage extends Page
-{}
+{
+	/**
+	 * 
+	 */
+	public static $icon = "imprintpage/images/icons/imprintpage.png";
+	
+	/**
+	 * 
+	 */
+	public static $singular_name = "Impressum Seite";
+	
+	/**
+	 * 
+	 */
+	public static $plural_name = "Impressum Seiten";
+	
+	/**
+	 * 
+	 */
+	public static $description = "Stellt nötige Informationen für das Impressum dar";
+}
 
 
 
 /**
  * 
- * @author mkernler
+ * @author marcokernler
  *
  */
 class ImprintPage_Controller extends Page_Controller
@@ -57,39 +77,6 @@ class ImprintPage_Controller extends Page_Controller
 		{
 			Requirements::css("imprintpage/css/imprint.min.css");
 		}
-	}
-	
-	
-	/**
-	 *  Return the data to the template
-	 *  
-	 *  @return A dataobject containing the imptrint data
-	 */
-	public function SiteInfo()
-	{
-		$siteConfig = DataObject::get("SiteConfig");
-		
-		return $siteConfig;
-	}
-	
-	
-	/**
-	 * Return a obfuscated version of the defined
-	 * email address.
-	 */
-	public function MailObfuscated()
-	{
-		$siteInfo = $this->SiteInfo();
-		
-		if(!$siteInfo) return;
-		
-		$siteConfig = $siteInfo->First();
-		
-		if(!$siteConfig) return;
-		
-		$email = $siteConfig->Email;
-		
-		return Email::obfuscate($email);
 	}
 }
 ?>
